@@ -21,5 +21,9 @@ export class RestaurantService {
     return this.WebRequestService.get('restaurant')
   }
 
+  restaurantGetId(id : string){
+    return this.WebRequestService.get(`restaurant/${id}`)
+  }
+
 
 }

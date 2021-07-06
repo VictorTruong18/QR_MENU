@@ -197,5 +197,22 @@ router.post('/', (req,res) => {
  })
 
 
+ //GET ANY RESTAURANT WITH ID
+ /**
+ * GET /restaurant/:id
+ * Purpose: Get Infos of the restaurant
+ */
+  router.get('/:id', async (req,res) => {
+    try {
+        const { id } = req.params
+        const Utilisateur = await Restaurant.findById(id)
+        res.status(200).send(Utilisateur)
+
+     }catch(e){
+        res.status(400).send({msg : "This Restaurant doesn't exist"})
+     }
+ })
+
+
 
 module.exports = router;

@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="text-center">
+
+    <h3>{{ restaurant_name }}</h3>
+
+    <a href><p>{{ restaurantId }}</p></a>
+
+  <div class="form-element">
+    <div class="feedback-card">
+      <div class="feedback-header">
+  
+        <fieldset id="fieldset" disabled="disabled">
+        <form class="feedback-body" #simpleForm1="ngForm"  >
+          <h3>Informations Personnels</h3>
+        
+
+          <h5> {{ address }} </h5>
+            <h5> {{ city }} </h5>
+            <h5> {{ zip }} </h5>
+            <h5> {{ phone }} </h5>
+            <a href><h5> {{ website }} </h5> </a>
+
+        </form> 
+       
+         </fieldset>
+         
+ 
+    </div>
+  </div>
+
+  <div class="form-element">
+    <div class="feedback-card">
+      <div class="feedback-header">
+  
+       
+          <h3>Menu </h3>
+           
+          
+
+
+              <div class="feedback-card">
+                <div class="feedback-header">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                    
+                            <th scope="col">Dish Name</th>
+                            <th scope="col">Price </th>
+                            <th scope="col">Type of Dish</th>
+                          
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dish of dishes">
+                       
+                            <td>{{ dish.dishName}}</td>
+                            <td>{{ dish.dishPrice}}</td>
+                            <td>{{ dish.dishType}}</td>
+                     
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              </div>
+            </div>
+         
+  
+  
+    </div>
+  </div>
+
+</div>
+

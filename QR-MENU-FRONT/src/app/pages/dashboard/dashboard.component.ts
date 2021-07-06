@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { RestaurantService } from 'src/app/services/restaurant/restaurant.service'; 
-import { DishService } from 'src/app/services/dish/dish.service'
+import { DishService } from 'src/app/services/dish/dish.service';
 import { environment } from 'src/environments/environment';
 
 
@@ -73,8 +73,8 @@ export class DashboardComponent implements OnInit {
         this.city  = restaurantData['city'],
         this.zip = restaurantData['zip'],
         this.website = restaurantData['website'],
-        this.link = environment.URI + "/restaurant/" + restaurantData['_id'],
-        this.value = environment.URI + "/restaurant/" + restaurantData['_id'],
+        this.link = environment.URI_FRONT + "/restaurant/" + restaurantData['_id'],
+        this.value = environment.URI_FRONT + "/restaurant/" + restaurantData['_id'],
         this.dishes = restaurantData['dishes']
       },
       (error) => {

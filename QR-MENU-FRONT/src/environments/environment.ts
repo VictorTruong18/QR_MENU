@@ -11,7 +11,9 @@ export const environment = {
   //STRIPE Publishable key
   STRIPE_publishableKey: "pk_test_51IzMHNDBVMyYt29bur5sGTE0y34kVEgOMIBgqNPgore2l4XDOZbcg0qaW6mewLOGibx0VqMTpIYVutQYtJYkKcyQ00w8pS0fSc",
   //PRIX
-  STRIPE_prix: "price_1J9b1XDBVMyYt29b647ccd3E"
+  STRIPE_prix: "price_1J9b1XDBVMyYt29b647ccd3E",
+  //URL_FRONT
+  URI_FRONT : 'http://localhost:4200'
 };
 
 /*

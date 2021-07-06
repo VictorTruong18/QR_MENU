@@ -15,6 +15,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { RestaurantComponent } from './pages/restaurant/restaurant.component';
+import { ErrorComponent } from './pages/error/error.component';
  
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     EmailConfirmationComponent,
     ChoixAbonnementComponent,
-    DashboardComponent
+    DashboardComponent,
+    RestaurantComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
