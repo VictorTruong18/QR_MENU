@@ -55,6 +55,7 @@ app.use(bodyParser.json());
 app.use('/restaurant', require('./routes/restaurant.js'));
 app.use('/dish', require('./routes/dish.js'));
 app.use('/payment', require('./routes/payment.js'));
+app.use('/authorisation', require('./routes/authorisation.js'))
 
 
 //PORT CONNECTION

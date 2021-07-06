@@ -5,7 +5,8 @@ const { Dish } = require('../db/models')
 const { mongoose } = require('../db/mongoose')
 
 router.post('/', async (req,res) => {
-    const dishes  = req.body.val
+    try {
+        const dishes  = req.body.val
     const { userId } = req.session
     const _id = mongoose.Types.ObjectId(userId)
     
@@ -23,8 +24,13 @@ router.post('/', async (req,res) => {
 
     // await Restaurant.findByIdAndUpdate({userId},{"dishes": dishes});
     const Utilisateur = await Restaurant.findById(userId)
-    
+    res.status(200).send()
     console.log(Utilisateur.dishes)
+    } catch(err){
+        console.log(err)
+        res.status(400).send()
+    }
+    
 })
 
 

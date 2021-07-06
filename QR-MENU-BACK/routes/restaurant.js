@@ -27,7 +27,8 @@ function captchaValidation(captchaToken){
 
 
 function registerRestaurantDB(body){
-    //HASH PASSWORD
+
+         //HASH PASSWORD
     var myPlaintextPassword = body.password;
     const salt = crypto.randomBytes(16).toString("hex")
     plainPassword = salt.concat(myPlaintextPassword)
@@ -56,6 +57,7 @@ function registerRestaurantDB(body){
     //SAVE IT IN THE DB
     newRestaurant.save()
     return newRestaurant
+    
 
 }
 

@@ -35,7 +35,7 @@ router.get('/payment-success/:session_id', async (req,res) => {
     //}
 
    
-    res.send("hello toi")
+    res.redirect(`${process.env.URI_FRONT}/dashboard`);
 
 })
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from './../../../environments/environment';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-choix-abonnement',
   templateUrl: './choix-abonnement.component.html',
@@ -9,9 +10,10 @@ export class ChoixAbonnementComponent implements OnInit {
 
   prix = environment.STRIPE_prix;
 
-  constructor() { }
+  constructor(private ToastrService : ToastrService) { }
 
   ngOnInit(): void {
+    this.ToastrService.success('Your email has been confirmed', 'Success');
   }
 
   payer(){

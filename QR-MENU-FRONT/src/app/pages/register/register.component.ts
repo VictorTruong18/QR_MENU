@@ -69,10 +69,11 @@ export class RegisterComponent implements OnInit {
       this.RestaurantService.restaurantRegister(restaurantJSON).subscribe(
         (response) => {
           console.log("success")
+          this.ToastrService.success('Your account has been registered', 'Success');
           this.router.navigate(['/confirmationEmail'])
         },
         (error) => {
-          console.log(error.error.msg)
+          this.ToastrService.error('There was an issue with registering', 'Error');
         }
       )
 
@@ -178,8 +179,5 @@ export class RegisterComponent implements OnInit {
     this.captcha = true;
   }
 
-  showToastr(){
-    this.ToastrService.success('Some messages', 'title');
-  }
-
+ 
 }

@@ -3,7 +3,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
 import { RestaurantService } from 'src/app/services/restaurant/restaurant.service'; 
 import { DishService } from 'src/app/services/dish/dish.service';
 import { environment } from 'src/environments/environment';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
   value = 'https://www.techiediaries.com/';
 
-  constructor(private RestaurantService : RestaurantService, private DishService : DishService) { 
+  constructor(private ToastrService : ToastrService, private RestaurantService : RestaurantService, private DishService : DishService) { 
     this.restaurant_name = 'My Restaurant';
     this.address = "My adress";
     this.city = "My CIty";
@@ -167,8 +167,12 @@ export class DashboardComponent implements OnInit {
   registerChange(){
    
     this.DishService.addDish(this.dishes).subscribe(
-      (response) => {
-        console.log(response)
+      (res) => {
+        
+        this.ToastrService.success('Your changes have been registered succesfully', 'Success');
+      },
+      (err) => {
+        this.ToastrService.error('An error occured', 'Error');
       }
     )
   }

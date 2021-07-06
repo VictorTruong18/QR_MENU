@@ -41,7 +41,7 @@ import { ErrorComponent } from './pages/error/error.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 1000,
+      timeOut: 3000,
       progressBar: true,
       progressAnimation: 'increasing'
     })
