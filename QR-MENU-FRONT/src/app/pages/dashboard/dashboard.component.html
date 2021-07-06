@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div class="text-center">
+
+    <h3>{{ restaurant_name }}</h3>
+    <ngx-qrcode
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value"
+  cssClass="bshadow"></ngx-qrcode>
+
+    <a href><p>{{ link }}</p></a>
+
+  <div class="form-element">
+    <div class="feedback-card">
+      <div class="feedback-header">
+  
+        <fieldset id="fieldset" disabled="disabled">
+        <form class="feedback-body" #simpleForm1="ngForm"  >
+          <h3>Informations Personnels</h3>
+        
+
+          <h5> {{ address }} </h5>
+            <h5> {{ city }} </h5>
+            <h5> {{ zip }} </h5>
+            <h5> {{ phone }} </h5>
+            <a href><h5> {{ website }} </h5> </a>
+
+        </form> 
+       
+         </fieldset>
+         
+ 
+    </div>
+  </div>
+
+  <div class="form-element">
+    <div class="feedback-card">
+      <div class="feedback-header">
+  
+       
+          <h3>Menu </h3>
+          <div class="row">
+           
+            <div class="col-lg-12">
+                <div class="form-element">
+                    <div class="feedback-card">
+                      <div class="feedback-header">
+                        <form class="feedback-body"  #simpleForm="ngForm" (ngSubmit)="addDish(simpleForm.value)">
+                         
+                          <h3>Add a dish to your menu</h3>
+                         
+                  
+                          <label class="erreur" id="erreur-dishName">Please give a name for your dish</label>
+            
+                          <input type="text" ngModel name="dishName" placeholder="Dish Name ( ex : Pizza Margharita )" maxlength="30">
+                  
+                          <label class="erreur" id="erreur-dishPrice">Please give a number</label>
+                      
+                          <input type="text" ngModel name="dishPrice" placeholder="Price ( ex : 12.56 )" maxlength="30">
+                         
+                          <label class="erreur" id="erreur-dishType"> Please give a type to your dish</label>
+                         
+                          <input type="text" ngModel name="dishType" placeholder="Type of Dish ( ex : Dessert, Dish, Drink, Entree )" maxlength="30">
+                
+                          
+                          <button type="submit">Add</button>
+                      </form> 
+                    </div>
+                  </div>
+           
+            </div>
+
+
+
+            <div class="col-lg-12">
+              <div class="feedback-card">
+                <div class="feedback-header">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                    
+                            <th scope="col">Dish Name</th>
+                            <th scope="col">Price </th>
+                            <th scope="col">Type of Dish</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dish of dishes">
+                       
+                            <td>{{ dish.dishName}}</td>
+                            <td>{{ dish.dishPrice}}</td>
+                            <td>{{ dish.dishType}}</td>
+                            <td><button (click) ="deleteDish(dish)">delete</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  <button (click)="registerChange()">Register Change</button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
