@@ -216,5 +216,53 @@ router.post('/', (req,res) => {
  })
 
 
+ router.post('/connection', async (req,res) => {
+    let champsVerification = []
+
+    try {
+        var strangerInfo = req.body.val;
+       
+        var strangerEmail = strangerInfo['email']
+        var strangerPassword = strangerInfo['password']
+
+        var userEmailConfirmation = await Restaurant.findOne({email : strangerEmail}).distinct('isConfirmed')
+        var userSalt = await Restaurant.findOne({email : strangerEmail}).distinct('salt')
+        var userPasswordHash = await Restaurant.findOne({email : strangerEmail}).distinct('password')
+        var userId = await Restaurant.findOne({email : strangerEmail}).distinct('_id')
+
+
+        var strangerHashedPassword = sha256(userSalt[0].concat(strangerPassword));
+
+
+        if(userEmailConfirmation[0]){
+            champsVerification.push(true)
+        } else {
+            champsVerification.push(false)
+        }
+
+
+        if(strangerHashedPassword == userPasswordHash[0]){
+            champsVerification.push(true)
+        } else {
+            champsVerification.push(false)
+        }
+
+        let isEveryChampValid = champsVerification.every(function(champ){
+            return champ == true
+        })
+
+        if(isEveryChampValid){
+            req.session.userId = userId
+            res.status(200).send()
+        } else {
+            res.status(406).send()
+        }
+ 
+    } catch(err) {
+        res.status(400).send()
+    }
+ })
+
+
 
 module.exports = router;
